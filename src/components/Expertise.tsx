@@ -1,30 +1,27 @@
 import { useEffect, useRef, useState } from "react"
-import { Home, Building, Armchair, Trees } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
+import Icon from "@/components/ui/icon"
 
 const expertiseAreas = [
   {
-    title: "Жилая архитектура",
-    description: "Создаем дома, которые сочетают красоту с комфортом, где каждое пространство служит и форме, и функции.",
-    icon: Home,
+    title: "Свои объекты",
+    description: "Индустриальные парки, бизнес-центры и складские комплексы в аренду напрямую. Без посредников — от 500 м² до 50 000 м². Готовые блоки и возможность въезда в течение 30 дней.",
+    icon: "Building2",
   },
   {
-    title: "Коммерческие объекты",
-    description:
-      "Проектируем рабочие пространства, которые вдохновляют на продуктивность и отражают ценности передовых организаций.",
-    icon: Building,
+    title: "Аутсорсинг управления",
+    description: "Возьмём ваш объект в профессиональное управление. Техническая эксплуатация, юридическое сопровождение, сбор платежей и обеспечение заполняемости. Повышаем доходность на 15–30%.",
+    icon: "Settings",
   },
   {
-    title: "Дизайн интерьеров",
-    description:
-      "Создаем интерьеры, которые гармонируют с архитектурной оболочкой, формируя целостный пространственный опыт.",
-    icon: Armchair,
+    title: "Застройка под проект",
+    description: "Строим складские комплексы, БЦ и производственные корпуса под ключ — под вашего арендатора или для собственного бизнеса. Срок — 10–14 месяцев. Built-to-suit с гарантией.",
+    icon: "HardHat",
   },
   {
-    title: "Градостроительство",
-    description:
-      "Формируем сообщества через продуманную интеграцию общественных пространств, зданий и природных элементов.",
-    icon: Trees,
+    title: "Консалтинг и господдержка",
+    description: "Подбираем государственные программы с льготами до 100% налоговой экономии. ОЭЗ, ТОСЭР, Минпромторг, региональные фонды. Сопровождение от подачи заявки до получения субсидии.",
+    icon: "BadgeCheck",
   },
 ]
 
@@ -57,20 +54,19 @@ export function Expertise() {
     <section id="services" ref={sectionRef} className="py-32 md:py-29">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-3xl mb-20">
-          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наши услуги</p>
+          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Ключевые направления</p>
           <h2 className="text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-            <HighlightedText>Экспертиза</HighlightedText>, отточенная
+            <HighlightedText>Полный цикл</HighlightedText> работы
             <br />
-            практикой
+            с недвижимостью
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Каждый проект опирается на десятилетия совокупного опыта, создавая архитектуру, которая одновременно инновационна и вневременна.
+            От аренды готовых площадей до строительства объекта под ваш проект и привлечения государственного финансирования — всё в одной компании.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
           {expertiseAreas.map((area, index) => {
-            const Icon = area.icon
             return (
               <div
                 key={area.title}
@@ -91,7 +87,7 @@ export function Expertise() {
                     transitionDelay: `${index * 150}ms`,
                   }}
                 >
-                  <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
+                  <Icon name={area.icon} className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
                 </div>
                 <h3 className="text-xl font-medium mb-4">{area.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{area.description}</p>
